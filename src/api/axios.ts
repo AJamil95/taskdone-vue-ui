@@ -1,4 +1,7 @@
+import { useAlert } from '@/composables/useAlert'
 import { ENV } from '@/config/env'
+import router from '@/router'
+import { useAuthStore } from '@/stores/auth.store'
 import axios from 'axios'
 
 const api = axios.create({
@@ -22,6 +25,20 @@ api.interceptors.request.use(
     return Promise.reject(error)
   },
 )
+
+api.interceptors.response.use(
+  (response) => response, 
+  (error) => {
+    if (error.response?.status === 401) {
+      const authStore = useAuthStore();  
+      const { open } = useAlert();       
+      authStore.logout();                
+      router.push({ name: 'login' });    
+      open('Sesión expirada. Por favor, inicia sesión nuevamente.', 'warning');
+    }
+    return Promise.reject(error);  
+  }
+);
 
 // Interceptor de errores
 // TODO: agregar interteceptor de erroes al tener login

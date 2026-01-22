@@ -16,7 +16,7 @@ const state = reactive<AlertState>({
 
 export const useAlert = () => {
   const open = (msg: string, typeValue: AlertType = 'info') => {
-    console.log('llegando en useAlert', msg)
+    // console.log('llegando en useAlert', msg)
     state.message = msg
     state.type = typeValue
     state.show = true

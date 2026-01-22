@@ -1,7 +1,7 @@
 export interface ParamsDataTable {
   page: number
   limit: number
-  orderBy?: string
+  orderby?: string
   orderDir?: string
   search?: string
   done?: boolean | null
