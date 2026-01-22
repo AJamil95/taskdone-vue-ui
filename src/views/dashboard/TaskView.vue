@@ -2,7 +2,7 @@
 import ConfirmDialog from '@/components/global/ConfirmDialog.vue';
 import { useDataTable } from '@/composables/useDataTable';
 import { useTask } from '@/composables/useTask';
-import { CreateTask, Task, UpdateTask } from '@/interfaces/task.inteface';
+import type { CreateTask, Task, UpdateTask } from '@/interfaces/task.inteface';
 import { TaskService } from '@/services/task.service';
 import { ref } from 'vue'
 

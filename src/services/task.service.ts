@@ -1,5 +1,6 @@
 import api from "@/api/axios";
-import type { Task, CreateTask, UpdateTask, ParamsDataTable } from '@/interfaces'
+import type { ParamsDataTable } from "@/interfaces/datatable.interface";
+import type { CreateTask, Task, UpdateTask } from "@/interfaces/task.inteface";
 
 export const TaskService = {
     async getTasks(params: ParamsDataTable): Promise<{total: number;page:number; pages: number; data: Task[]}>{

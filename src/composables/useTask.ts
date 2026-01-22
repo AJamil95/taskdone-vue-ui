@@ -1,7 +1,7 @@
 import { TaskService } from '@/services/task.service'
 import { useRequest } from './useRequest'
 import { useAlert } from './useAlert'
-import type { CreateTask, UpdateTask, Task } from '@/interfaces'
+import type { CreateTask, Task, UpdateTask } from '@/interfaces/task.inteface'
 
 export function useTask() {
   const { loading, error, run } = useRequest()
