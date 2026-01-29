@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { useAuth } from '@/composables/useAuth'
 import router from '@/router'
+import { useRoute } from 'vue-router'
 
 const { logout } = useAuth()
+const route = useRoute()
 </script>
 
 <template>
   <v-app>
     <v-app-bar elevation="2">
-      <v-app-bar-title>Proyecto Vue 3</v-app-bar-title>
+      <v-app-bar-title>Task Done App</v-app-bar-title>
       <v-spacer />
       <v-btn variant="text" @click="logout">
         <v-icon start>mdi-logout</v-icon>
@@ -21,11 +23,13 @@ const { logout } = useAuth()
         <v-list-item
           title="Perfil"
           prepend-icon="mdi-account"
+          :active="route.name === 'profile'"
           @click="router.push({ name: 'profile' })"
         />
         <v-list-item
           title="Tareas"
           prepend-icon="mdi-format-list-checks"
+          :active="route.name === 'tasks'"
           @click="router.push({ name: 'tasks' })"
         />
       </v-list>
